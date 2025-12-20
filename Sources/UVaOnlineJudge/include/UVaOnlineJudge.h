@@ -22,5 +22,6 @@
 
 #include "../volume100/uva10071.h"
 #include "../volume118/uva11805.h"
+#include "../volume130/uva13025.h"
 
 #endif /* UVaOnlineJudge_h */

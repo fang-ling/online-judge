@@ -37,11 +37,11 @@
 
 #include <stdio.h>
 
-#include <CoreCloudFoundation.h>
+#include <FoundationFramework.h>
 
 void uva10071() {
-  CCFoundation_Int64 v = 0;
-  CCFoundation_Int64 t = 0;
+  Foundation_Int64 v = 0;
+  Foundation_Int64 t = 0;
   while (scanf("%lld %lld", &v, &t) == 2) {
     printf("%lld\n", 2 * v * t);
   }

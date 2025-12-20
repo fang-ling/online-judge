@@ -21,35 +21,45 @@
 
 import PackageDescription
 
+let dependencies: [(String, PackageDescription.Version)] = [
+  ("https://github.com/fang-ling/foundation-framework", "1.0.0")
+]
+
+let ioData = [
+  ("UVaOnlineJudge", 100, 10071, 3),
+  ("UVaOnlineJudge", 118, 11805, 3),
+  ("UVaOnlineJudge", 130, 13025, 1)
+]
+
 let package = Package(
   name: "online-judge",
-  dependencies: [
-    .package(path: "../core-cloud/core-cloud-foundation")
-  ],
+  dependencies: dependencies.map({ .package(url: $0.0, exact: $0.1) }),
   targets: [
     .target(
       name: "UVaOnlineJudge",
       dependencies: [
-        .product(name: "CoreCloudFoundation", package: "core-cloud-foundation")
+        .product(name: "FoundationFramework", package: "foundation-framework")
       ]
     ),
     .testTarget(
       name: "OnlineJudgeTests",
       dependencies: ["UVaOnlineJudge"],
-      resources: [
-        Resource.process("Resources/UVaOnlineJudge/Volume100/10071-0-in.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume100/10071-0-out.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume100/10071-1-in.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume100/10071-1-out.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume100/10071-2-in.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume100/10071-2-out.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume118/11805-0-in.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume118/11805-0-out.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume118/11805-1-in.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume118/11805-1-out.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume118/11805-2-in.txt"),
-        Resource.process("Resources/UVaOnlineJudge/Volume118/11805-2-out.txt")
-      ]
+      resources: ioData
+        .map({ datum in
+          [
+            (0 ..< datum.3).map({
+              Resource.process(
+                "Resources/\(datum.0)/Volume\(datum.1)/\(datum.2)-\($0)-in.txt"
+              )
+            }),
+            (0 ..< datum.3).map({
+              Resource.process(
+                "Resources/\(datum.0)/Volume\(datum.1)/\(datum.2)-\($0)-out.txt"
+              )
+            })
+          ].flatMap({ $0 })
+        })
+        .flatMap({ $0 })
     )
   ],
   cLanguageStandard: .c89

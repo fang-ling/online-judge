@@ -1,8 +1,8 @@
 //
-//  UVaOnlineJudgeTests.swift
+//  uva13025.h
 //  online-judge
 //
-//  Created by Fang Ling on 2025/12/2.
+//  Created by Fang Ling on 2025/12/20.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -17,20 +17,9 @@
 //  limitations under the License.
 //
 
-import Testing
-@testable import UVaOnlineJudge
+#ifndef uva13025_h
+#define uva13025_h
 
-@Test
-func runUVaOnlineJudgeTests() throws {
-  let tests = [
-    (uva10071, 10071, 3),
-    (uva11805, 11805, 3),
-    (uva13025, 13025, 1)
-  ]
+void uva13025();
 
-  for test in tests {
-    try run(main: test.0, for: test.1, caseCount: test.2).forEach { result in
-      #expect(result.0 == result.1)
-    }
-  }
-}
+#endif /* uva13025_h */

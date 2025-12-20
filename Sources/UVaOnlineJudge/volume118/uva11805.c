@@ -62,20 +62,20 @@
 
 #include <stdio.h>
 
-#include <CoreCloudFoundation.h>
+#include <FoundationFramework.h>
 
 void uva11805() {
-  CCFoundation_Int64 t = 0;
+  Foundation_Int64 t = 0;
   scanf("%lld", &t);
 
-  CCFoundation_Int64 case_number = 1;
+  Foundation_Int64 case_number = 1;
   for (; case_number <= t; case_number += 1) {
-    CCFoundation_Int64 n = 0;
-    CCFoundation_Int64 k = 0;
-    CCFoundation_Int64 p = 0;
+    Foundation_Int64 n = 0;
+    Foundation_Int64 k = 0;
+    Foundation_Int64 p = 0;
     scanf("%lld %lld %lld", &n, &k, &p);
 
-    CCFoundation_Int64 result = (k + p) % n;
+    Foundation_Int64 result = (k + p) % n;
 
     printf("Case %lld: %lld\n", case_number, result == 0 ? n : result);
   }
