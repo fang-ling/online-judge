@@ -22,10 +22,11 @@
 import PackageDescription
 
 let dependencies: [(String, PackageDescription.Version)] = [
-  ("https://github.com/fang-ling/foundation-framework", "1.0.0")
+  ("https://github.com/fang-ling/foundation-framework", "1.1.0")
 ]
 
 let ioData = [
+  ("UVaOnlineJudge", 100, 10055, 7),
   ("UVaOnlineJudge", 100, 10071, 3),
   ("UVaOnlineJudge", 118, 11805, 3),
   ("UVaOnlineJudge", 130, 13025, 1)

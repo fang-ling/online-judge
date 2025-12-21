@@ -1,8 +1,8 @@
 //
-//  UVaOnlineJudge.h
+//  uva10055.h
 //  online-judge
 //
-//  Created by Fang Ling on 2025/12/2.
+//  Created by Fang Ling on 2025/12/21.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -17,12 +17,9 @@
 //  limitations under the License.
 //
 
-#ifndef UVaOnlineJudge_h
-#define UVaOnlineJudge_h
+#ifndef uva10055_h
+#define uva10055_h
 
-#include "../volume100/uva10055.h"
-#include "../volume100/uva10071.h"
-#include "../volume118/uva11805.h"
-#include "../volume130/uva13025.h"
+void uva10055();
 
-#endif /* UVaOnlineJudge_h */
+#endif /* uva10055_h */

@@ -23,6 +23,7 @@ import Testing
 @Test
 func runUVaOnlineJudgeTests() throws {
   let tests = [
+    (uva10055, 10055, 7),
     (uva10071, 10071, 3),
     (uva11805, 11805, 3),
     (uva13025, 13025, 1)
